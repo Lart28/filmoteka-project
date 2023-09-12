@@ -1,0 +1,32 @@
+.search-line {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  width: 280px;
+  border-bottom: 0.5px solid #fff;
+  @media screen and (min-width: $tablet) {
+    width: 336px;
+  }
+}
+.search-input {
+  display: block;
+  width: 268px;
+  color: #fff;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  @media screen and (min-width: $tablet){
+    width: 324px;
+  }
+  &::placeholder{
+    color: $main-text-color;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.search-icon {
+  background-image: url("../images/search.svg");
+  width: 12px;
+  height: 12px;
+}

@@ -1,0 +1,51 @@
+.profile-menu-select{
+  pointer-events: none;
+  position: absolute;
+  top: 18px;
+  right: 0px;
+  font-size: 16px;
+  background: #fff;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  color: $sub-text-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 121%;
+  height: 900%;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    li {
+      text-transform: none;
+      cursor: pointer;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      &:last-child{
+        color: red;
+      }
+    }
+    li:hover {
+      background-color: $accent-color;
+      font-weight: 500;
+      color: $sub-text-color;
+    }
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .profile-menu-select {
+    width: 50%;
+    height: 500%;
+    font-size: 14px;
+  }
+}

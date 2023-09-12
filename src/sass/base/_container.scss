@@ -1,0 +1,30 @@
+@media screen and (min-width: $mobile) {
+  .container {
+    padding: 45px 20px;
+    width: $mobile;
+    margin: 0 auto;
+  }
+  main.container {
+    padding: 20px 20px 40px 20px;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .container {
+    padding: 40px 75px;
+    width: $tablet;
+  }
+  main.container {
+    padding: 60px 75px 50px 75px;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .container {
+    padding: 40px 70px;
+    width: $desktop;
+  }
+  main.container {
+    padding: 60px 70px 50px 70px;
+  }
+}

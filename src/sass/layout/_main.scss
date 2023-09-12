@@ -1,0 +1,9 @@
+.movies-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 20px;
+  @media screen and (min-width: $tablet) {
+    gap: 30px;
+  }
+}

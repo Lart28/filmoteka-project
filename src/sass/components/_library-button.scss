@@ -1,0 +1,33 @@
+.library-button {
+  width: 136px;
+  height: 44px;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  font-size: 12px;
+  color: $main-text-color;
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 16px;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    border-color: $accent-color;
+    background-color: $accent-color;
+    box-shadow: 0 0 50px $accent-color;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+}
+.library-button:not(:last-child) {
+  margin-right: 20px;
+}
+.library-button-current {
+  border-color: $accent-color;
+  background-color: $accent-color;
+  box-shadow: 0 0 50px $accent-color;
+  &:active {
+    transform: translateY(0px);
+  }
+}

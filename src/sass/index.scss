@@ -1,2 +1,18 @@
-@import './common';
-@import './example';
+@import './utils/breakpoints';
+@import './utils/variables';
+
+@import './base/common';
+@import './base/container';
+
+@import './components/logo';
+@import './components/search-panel';
+@import './components/library-button';
+@import './components/card-movie';
+@import './components/modal';
+@import './components/loader-spinner';
+@import './components/profile-menu-select';
+@import './components/auth';
+
+@import './layout/header';
+@import './layout/main';
+@import './layout/footer';

@@ -3,12 +3,64 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
+    <title>Filmoteka</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" />
+    <link rel="stylesheet" href="./sass/index.css" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <header class="background background-home">
+      <div class="page-header container">
+        <nav class="navigation">
+          <a href="" class="logo">
+            <svg class="logo-icon">
+              <use href="./images/sprite.svg#icon-film"></use>
+            </svg>
+            <span class="logo-text">Filmoteka</span>
+          </a>
+          <ul class="nav-list">
+            <li class="nav-list-item">
+              <a class="nav-link home-link" href="">Home</a></li> 
+            <li class="nav-list-item">
+              <a class="nav-link library-link" href="">My library</a></li>
+          </ul>
+        </nav>
+        <div class="header-change"> 
+        </div>
+      </div>
+    </header>
+    <main class="movies-gallery container">
+    </main>
+    <span class="loader-spinner is-hidden" data-loader-spinner></span>
+    <footer class="container">
+      <div class="num-page">
+        <button class="button-change-page switch prev-btn" disabled>
+          <svg class="icon-arrow">
+            <use href="./images/sprite.svg#icon-arrow-left"></use>
+          </svg>
+        </button>
+        <ul class="pages">
+        </ul>
+        <button class="button-change-page switch next-btn" disabled>
+          <svg class="icon-arrow">
+            <use href="./images/sprite.svg#icon-arrow-right"></use>
+          </svg>
+        </button>
+      </div>
+      <p class="copyright">© 2023 | All Rights Reserved | Developed with 
+        <svg class="heart-icon">
+          <use href="./images/sprite.svg#icon-heart"></use>
+      </svg> by <a class="author" href="">Andrii Kyrylov</a></p>
+    </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <div class="modal-card-movie"></div>
+        <button type="button" class="modal-close-button" data-modal-close>
+          <img src="./images/x.svg" alt="">
+        </button>
+      </div> 
+    </div>
+    <script type="module" src="./js/modal.js"></script>
   </body>
 </html>

@@ -1,0 +1,41 @@
+.movie-card {
+  width: 100%;
+  cursor: pointer;
+    @media screen and (min-width: $tablet) {
+      width: calc((100% - 30px)/2);
+    }
+    @media screen and (min-width: $desktop) {
+      width: calc((100% - 60px)/3);
+    }
+  &-poster {
+    width: 100%;
+    border-radius: 4px;
+    pointer-events: none;
+  }
+  &-info {
+  margin-top: 10px;
+  pointer-events: none;
+  }
+  &-name {
+    color: $sub-text-color;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  &-genre-year {
+    color: $accent-color;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  &-id {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+

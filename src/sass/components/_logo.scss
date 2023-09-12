@@ -1,0 +1,19 @@
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo-text {
+  display: none;
+  margin-left: 10px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 35px;
+
+  @media screen and (min-width: $tablet) {
+    display: inline;
+  }
+}
+.logo-icon{
+  width: 24px;
+  height: 24px;
+}
