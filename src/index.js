@@ -532,7 +532,7 @@ authorEl.addEventListener('click', (e) => {
   modalCardMovie.innerHTML = "";
   modal.classList.add('author-modal');
   const image = document.createElement("img");
-  image.src = "./images/author_photo.jpg";
+  image.src = "/src/images/authorphoto.jpg";
   image.alt = "Author's photo";
   modalCardMovie.appendChild(image);
   modalCardMovie.insertAdjacentHTML('beforeend', `<div>

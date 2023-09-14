@@ -137,7 +137,7 @@ body.modal-open {
   &:disabled{
     color: $footer-text-color;
     border-color: $footer-text-color;
-    cursor: auto;
+    cursor: default;
   }
   &:not([disabled]):focus,
   &:not([disabled]):hover {
