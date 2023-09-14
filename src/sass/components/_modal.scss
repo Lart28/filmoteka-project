@@ -17,7 +17,6 @@ body.modal-open {
 }
 
 .modal {
-
   color: $sub-text-color;
   position: absolute;
   left: 50%;
@@ -138,6 +137,7 @@ body.modal-open {
   &:disabled{
     color: $footer-text-color;
     border-color: $footer-text-color;
+    cursor: auto;
   }
   &:not([disabled]):focus,
   &:not([disabled]):hover {

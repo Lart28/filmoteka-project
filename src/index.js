@@ -532,8 +532,8 @@ authorEl.addEventListener('click', (e) => {
   modalCardMovie.innerHTML = "";
   modal.classList.add('author-modal');
   const image = document.createElement("img");
-  image.src = "images/author_photo.jpg";
-  image.alt = "Author's beutiful photo";
+  image.src = "./images/author_photo.jpg";
+  image.alt = "Author's photo";
   modalCardMovie.appendChild(image);
   modalCardMovie.insertAdjacentHTML('beforeend', `<div>
     <h1>Andrii Kyrylov</h1>
