@@ -178,6 +178,12 @@ body.modal-open {
       }
     }
 }
+.author-card{
+  text-align: center;
+  &-info p{
+    margin-top: 10px;
+  }
+}
 
 @media screen and (min-width: $tablet) {
   .modal {
@@ -196,6 +202,16 @@ body.modal-open {
       line-height: 23.44px;
     }
   }
+  .author-card {
+    display: flex;
+    text-align: start;
+    &-info {
+      display: flex;
+      margin-left: 10px;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
 }
 
 @media screen and (min-width: $desktop) { 
@@ -207,3 +223,5 @@ body.modal-open {
       }
   }
 }
+
+

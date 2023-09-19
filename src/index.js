@@ -7,7 +7,7 @@ import debounce from "lodash.debounce";
 import { toggleModal } from "./js/modal"
 import { createMarkupAuth, createMarkupUser } from "./js/auth";
 import { currentUser } from "./js/auth";
-import { async } from "@firebase/util";
+import imagePath from './images/authorphoto.jpg';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCGGSS5RcH1R8c9uSz4y6TFdFwEQBj3q5I",
@@ -134,7 +134,6 @@ export function makeMarkupHome() {
       <label class="search-line"> 
         <input class="search-input" placeholder="Пошук фільмів" type="text">
         <span class="search-icon"></span>
-        </img>
       </label>
     </form >`)
   const searchInput = document.querySelector('.search-input');
@@ -531,14 +530,13 @@ authorEl.addEventListener('click', (e) => {
   toggleModal();
   modalCardMovie.innerHTML = "";
   modal.classList.add('author-modal');
-  const image = document.createElement("img");
-  image.src = "/src/images/authorphoto.jpg";
-  image.alt = "Author's photo";
-  modalCardMovie.appendChild(image);
-  modalCardMovie.insertAdjacentHTML('beforeend', `<div>
-    <h1>Andrii Kyrylov</h1>
-    <p>Budding web developer</p>
-    <p>28 years old</p>
-    <p>Hello, I am a beginner in web development and I want to present you my first project. In it, I used the knowledge and skills acquired during the course of JavaScript</p>
-  </div>`)
+  modalCardMovie.insertAdjacentHTML('beforeend', `<div class="author-card">
+    <img src="${imagePath}" alt="Author's photo" width="200px"/>
+    <div class="author-card-info"> 
+      <h1>Andrii Kyrylov</h1>
+      <p>Budding web developer</p>
+      <p>28 years old</p>
+      <p>Hello, I am a beginner in web development and I want to present you my first project. In it, I used the knowledge and skills acquired during the course of JavaScript</p>
+    </div>
+  </div>`);
 });

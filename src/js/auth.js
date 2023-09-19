@@ -17,6 +17,7 @@ const auth = getAuth();
 const profile = document.querySelector('.nav-list');
 const modal = document.querySelector('.modal');
 const modalCardMovie = document.querySelector('.modal-card-movie');
+const authorEl = document.querySelector('.author');
 export let currentUser = null;
 
 export function createMarkupAuth() {

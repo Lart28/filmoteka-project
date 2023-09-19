@@ -36,3 +36,4 @@ export function toggleModal() {
     closeBtn.removeEventListener('click', onCloseBtn);
   }
 }
+
