@@ -19,7 +19,8 @@
     transform: translateY(-50%);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
     .auth-form-input:focus + &,
-    .auth-form-input:not(:placeholder-shown) + & {
+    .auth-form-input:not(:placeholder-shown) + &, 
+    .auth-form-field:-webkit-autofill + &{
       padding: 0 2px 0 2px;
       transform: translate(-5px, -26px);
       color: $accent-color;
