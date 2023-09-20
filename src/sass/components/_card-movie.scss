@@ -11,6 +11,40 @@
     width: 100%;
     border-radius: 4px;
     pointer-events: none;
+    &::after{
+      content: "";
+      display: inline-block;
+      width: 280px;
+      height: 420px;
+        @media screen and (min-width: $tablet) {
+          width: 276px;
+          height: 426px;
+        }
+        @media screen and (min-width: $desktop) {
+          width: 274px;
+          height: 396px;
+        }
+    }
+    &::before{
+      content: "Unfortunately, this picture is broken";
+      display: block;
+      color: $sub-text-color;
+      width: 280px;
+      height: 439px;
+      padding-top: 216px;
+      background-color: $disable-color;
+      text-align: center;
+      position: absolute;
+      border-radius: 4px;
+      @media screen and (min-width: $tablet) {
+        width: 294px;
+        height: 441px;
+      }
+      @media screen and (min-width: $desktop) {
+        width: 274px;
+        height: 411px;
+      }
+    }
   }
   &-info {
   margin-top: 10px;

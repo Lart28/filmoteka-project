@@ -135,8 +135,8 @@ body.modal-open {
   line-height: 16px;
   cursor: pointer;
   &:disabled{
-    color: $footer-text-color;
-    border-color: $footer-text-color;
+    color: $disable-color;
+    border-color: $disable-color;
   }
   &:not([disabled]):focus,
   &:not([disabled]):hover {
