@@ -120,7 +120,7 @@ libraryEl.addEventListener('click', (e) => {
   makeMarkupLibrary('watched');
 })
 
-export function makeMarkupHome() {
+function makeMarkupHome() {
   loader.show();
   moviesGallery.removeEventListener('click', movieClick);
   moviesGallery.innerHTML = '';
@@ -201,7 +201,7 @@ function makeMarkupSearch(query) {
             <p class="movie-card-genre-year">${movie.genre.join(', ')} | ${movie.release_date.slice(0, 4)}</p>
             <span class="movie-card-id">${movie.id}</span>
           </div>
-        </div>`)
+        </div>`);
         loader.hide();
       })
     })
@@ -279,7 +279,7 @@ function makeMarkupWatched(movies) {
   moviesGallery.addEventListener('click', movieClick);
 }
 
-export function makeMarkupQueue(movies) {
+function makeMarkupQueue(movies) {
   moviesGallery.removeEventListener('click', movieClick);
   headerChange.firstElementChild.classList.remove('library-button-current');
   headerChange.lastElementChild.classList.add('library-button-current');
@@ -309,9 +309,9 @@ function writeMovieData(movie, category) {
   if (currentUser === null || currentUser === undefined) {
     Notiflix.Notify.info(`Please log in for this action`);
   } else {
-  const db = getDatabase();
-  const reference = ref(db, `${currentUser.uid}/${category}/` + movie.id);
-    set(reference, movie)
+    const db = getDatabase();
+    const reference = ref(db, `${currentUser.uid}/${category}/` + movie.id);
+    set(reference, movie);
   }
 }
 
@@ -320,7 +320,7 @@ export function readMovieData(category) {
   const db = getDatabase();
   const distanceRef = ref(db, `${currentUser.uid}/${category}/`);
   get(distanceRef).then(snapshot => {
-    const data = snapshot.val();
+    const data = snapshot.val();;
     if (category === 'watched') {
         makeMarkupWatched(data);
       }
@@ -359,38 +359,33 @@ async function checkBase(category, movie) {
       }
       
       async function onAddToWatched() {
+        modalBtns.innerHTML = "";
+        modalBtns.insertAdjacentHTML('beforeend', `<button type="button" class="modal-button">Add to watched</button>
+          <button type="button" class="modal-button">Add to queue</button>`);
         await get(ref(db, `${currentUser.uid}/queue/`)).then(snapshot => {
           const res = snapshot.val();
           if (res !== null) {
             if (Object.keys(res).includes(String(movie.id))) {
-              modalBtns.innerHTML = "";
-              modalBtns.insertAdjacentHTML('beforeend', `<button type="button" class="modal-button">Add to watched</button>
-                <button type="button" class="modal-button">Add to queue</button>`);
               deleteMovieData(movie.id, 'queue');
               Notiflix.Notify.failure(`${movie.title} removed from queue`);
               if (headerChange.lastElementChild.classList.contains('library-button-current')) {
                 readMovieData('queue');
               }
-              modalBtns.lastElementChild.addEventListener('click', onAddToQueue);
-            } else if (!Object.keys(res).includes(String(movie.id))) {
-              modalBtns.innerHTML = "";
-              modalBtns.insertAdjacentHTML('beforeend', `<button type="button" class="modal-button">Add to watched</button>
-                <button type="button" class="modal-button">Add to queue</button>`);
-            }
-            writeMovieData(movie, 'watched');
-            Notiflix.Notify.success(`${movie.title} added to watched`);
-            modalBtns.firstElementChild.classList.toggle('modal-button-activated-watched');
-            modalBtns.firstElementChild.textContent = '';
+            } 
           }
-        })
+          modalBtns.lastElementChild.addEventListener('click', onAddToQueue);
+          writeMovieData(movie, 'watched');
+          modalBtns.firstElementChild.addEventListener('click', onRemoveFromWatched);
+          Notiflix.Notify.success(`${movie.title} added to watched`);
+          modalBtns.firstElementChild.classList.toggle('modal-button-activated-watched');
+          modalBtns.firstElementChild.textContent = '';
+        });
         if (headerChange.firstElementChild.classList.contains('library-button-current')) {
           readMovieData('watched');
         }
         if (headerChange.lastElementChild.classList.contains('library-button-current')) {
           readMovieData('queue');
         }
-        modalBtns.firstElementChild.addEventListener('click', onRemoveFromWatched);
-        modalBtns.lastElementChild.addEventListener('click', onAddToQueue);
       }
 
       function onRemoveFromWatched() {
@@ -407,38 +402,33 @@ async function checkBase(category, movie) {
       }
 
       async function onAddToQueue() {
+        modalBtns.innerHTML = "";
+        modalBtns.insertAdjacentHTML('beforeend', `<button type="button" class="modal-button">Add to watched</button>
+          <button type="button" class="modal-button">Add to queue</button>`);
         await get(ref(db, `${currentUser.uid}/watched/`)).then(snapshot => {
           const res = snapshot.val();
           if (res !== null) {
             if (Object.keys(res).includes(String(movie.id))) {
-              modalBtns.innerHTML = "";
-              modalBtns.insertAdjacentHTML('beforeend', `<button type="button" class="modal-button">Add to watched</button>
-            <button type="button" class="modal-button">Add to queue</button>`);
               deleteMovieData(movie.id, 'watched');
               Notiflix.Notify.failure(`${movie.title} removed from watched`);
               if (headerChange.firstElementChild.classList.contains('library-button-current')) {
                 readMovieData('watched');
               }
-              modalBtns.firstElementChild.addEventListener('click', onAddToWatched);
-            } else if (!Object.keys(res).includes(String(movie.id))) {
-              modalBtns.innerHTML = "";
-              modalBtns.insertAdjacentHTML('beforeend', `<button type="button" class="modal-button">Add to watched</button>
-                <button type="button" class="modal-button">Add to queue</button>`);
-            }
-            writeMovieData(movie, 'queue');
-            Notiflix.Notify.success(`${movie.title} added to queue`);
-            modalBtns.lastElementChild.classList.toggle('modal-button-activated-queue');
-            modalBtns.lastElementChild.textContent = '';
+            } 
           }
-        })
+          modalBtns.firstElementChild.addEventListener('click', onAddToWatched);
+          writeMovieData(movie, 'queue');
+          modalBtns.lastElementChild.addEventListener('click', onRemoveFromQueue);
+          Notiflix.Notify.success(`${movie.title} added to queue`);
+          modalBtns.lastElementChild.classList.toggle('modal-button-activated-queue');
+          modalBtns.lastElementChild.textContent = '';
+        });
         if (headerChange.firstElementChild.classList.contains('library-button-current')) {
           readMovieData('watched');
         }
         if (headerChange.lastElementChild.classList.contains('library-button-current')) {
           readMovieData('queue');
         }
-        modalBtns.lastElementChild.addEventListener('click', onRemoveFromQueue);
-        modalBtns.firstElementChild.addEventListener('click', onAddToWatched);
       }
 
       function onRemoveFromQueue() {
